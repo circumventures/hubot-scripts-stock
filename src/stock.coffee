@@ -28,7 +28,7 @@ module.exports = (robot) ->
     .get() (err, res, body) ->
       try
         result = JSON.parse(body.replace(/\/\/ /, ''))
-        msg.send ticker.toUpperCase() + ": $"+result[0].l_cur + " (#{result[0].c})" + ' ' + 'http://finance.yahoo.com/q?s=' + ticker
+        msg.send ticker.toUpperCase() + ": $"+result[0].l_cur + " (#{result[0].c})"
       catch error
         msg.send "Error fetching stock :( " + err
 
@@ -39,7 +39,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         try
           result = JSON.parse(body.replace(/\/\/ /, ''))
-          msg.send ticker.toUpperCase() + ": $"+result[0].l_cur + " (#{result[0].c})" + ' ' + 'http://finance.yahoo.com/q?s=' + ticker
+          msg.send ticker.toUpperCase() + ": $"+result[0].l_cur + " (#{result[0].c})"
           msg.send "http://chart.finance.yahoo.com/z?s=#{ticker}&t=#{time}&q=l&l=on&z=l&a=v&p=s&lang=en-US&region=US#.png"
         catch
           msg.send "Error fetching stock :( " + err
